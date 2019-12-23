@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pi)
+                .setAutoCancel(true)
                 .build()
 
             nm.notify(2,clickableNotification)
