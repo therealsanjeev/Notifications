@@ -54,6 +54,24 @@ class MainActivity : AppCompatActivity() {
 
             nm.notify(2,clickableNotification)
         }
+        button3.setOnClickListener{
+            val i= Intent()
+            i.action=Intent.ACTION_VIEW
+            i.data= Uri.parse("https://www.therealsanjeev.in")
+
+            val pi =PendingIntent.getActivity(this,123,i,PendingIntent.FLAG_UPDATE_CURRENT)
+
+            val clickableNotification= NotificationCompat.Builder(this,"first")
+                .setContentTitle("Simple Titel")
+                .setContentText("This Simple description of the notification")
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .addAction(R.drawable.ic_launcher_background,"click me",pi)
+                .setAutoCancel(true)
+                .build()
+
+            nm.notify(3,clickableNotification)
+        }
         
     }
 }
