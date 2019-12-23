@@ -3,7 +3,10 @@ package com.example.notifications
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -32,6 +35,23 @@ class MainActivity : AppCompatActivity() {
 
             nm.notify(1,simpleNotification)
 
+        }
+        button2.setOnClickListener{
+            val i= Intent()
+            i.action=Intent.ACTION_VIEW
+            i.data= Uri.parse("https://www.therealsanjeev.in")
+
+            val pi =PendingIntent.getActivity(this,123,i,PendingIntent.FLAG_UPDATE_CURRENT)
+
+            val clickableNotification= NotificationCompat.Builder(this,"first")
+                .setContentTitle("Simple Titel")
+                .setContentText("This Simple description of the notification")
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pi)
+                .build()
+
+            nm.notify(2,clickableNotification)
         }
         
     }
