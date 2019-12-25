@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                 .setContentText("This Simple description of the notification")
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .addAction(R.drawable.ic_launcher_background,"click me",pi)
+                .addAction(R.drawable.ic_launcher_background,"Click me",pi)
                 .setAutoCancel(true)
                 .build()
 
